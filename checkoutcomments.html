@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--Load the AJAX API-->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<link rel="stylesheet" href=" http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript">
+	google.load("visualization", "1", {
+		packages: ["corechart"]
+	});
+	google.setOnLoadCallback(initChart);
+
+	$(window).resize(function (event) {
+		initChart();
+	});
+
+	function initChart() {
+		var options = {
+			backgroundColor: 'transparent',
+			legend:'none',
+			pieSliceText: 'percentage',
+			colors: ['#f97263', '#0598d8'],
+			pieHole: 0.4,
+		};
+
+		var data = google.visualization.arrayToDataTable([
+			['Checkout issue comments', 'Overall'],
+			['Shipping charge comments', 295],
+			['Other checkout issue comments', 1034]
+			]);
+		drawChart(data, options)
+	}
+
+	function drawChart(data, options) {
+		var chart = new google.visualization.PieChart(document.getElementById('chartcomments'));
+		chart.draw(data, options);
+	}
+
+	</script>
+	<link href="http://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" type="text/css">
+	<style>h1, h2, h3, h4, p, li, div{
+		font-family: Quicksand;
+		}</style>
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<h2>Example of display for checkout comments</h2>
+		<p>time period</p>
+		<p>There were 1,329 checkout comments during this period. 22.2% were marked as shipping charges. </p>
+		<div id="chart_wrap"><div id="chartcomments"></div></div>
+		<p id="canvas_size"></p>
+		<!--link to next page-->
+		<a href="pathanalysis.html" class="float_right bottom">
+			NEXT
+			<span class="glyphicon glyphicon-arrow-right"></span>
+		</a>
+		<p>Comments:</p>
+		<div id="comment"></div>
+		<script type = "text/javascript">
+		var all_comments = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec euismod elit. Ut egestas aliquam cursus. Nullam pretium ex a porta sodales.", "Suspendisse malesuada lacus risus, at porta nibh iaculis a. Phasellus egestas vehicula nisl vel auctor.", "Integer eleifend sapien quam, vitae ultricies nisl luctus non.", "Nulla pharetra a dui in lobortis. Cras rutrum a justo vitae feugiat. Etiam a sollicitudin ex, id dignissim tortor.", "Aenean dignissim massa nec est dapibus iaculis. Aenean a nibh facilisis, tristique dolor eu, tempor risus.", "Cras nisl justo, fringilla sed suscipit ut, finibus a lacus.", "Proin facilisis eleifend fringilla.", "Suspendisse faucibus tincidunt mauris, et condimentum massa tincidunt at. Integer facilisis lectus ligula, nec maximus tortor gravida sit amet.", "Maecenas vehicula, augue sit amet lobortis porta, lorem velit rutrum ipsum, facilisis pharetra eros lectus semper nibh.", "Vestibulum sed tempor ligula, id placerat lorem. Donec dictum neque sed eros tincidunt, eu eleifend nunc varius.", "Nulla tempor, nunc dapibus pharetra accumsan, nunc lorem sagittis magna, blandit aliquam lectus nisl ut ante. Maecenas malesuada ac nulla sagittis finibus.", "Nullam porta sed orci pretium aliquam. Nulla molestie arcu ac pharetra vestibulum.", "Phasellus laoreet interdum mollis. Integer sit amet velit quis enim ultrices blandit. Sed tristique ligula a lectus lacinia, nec elementum nunc cursus.", "Ut vel bibendum dui. Nam consectetur vulputate metus.", "Vivamus in ligula congue, venenatis dolor fermentum, molestie diam. Donec eget pellentesque lectus.", " Phasellus sodales tincidunt luctus.", "Mauris facilisis ut magna sit amet volutpat. Etiam ipsum neque, condimentum at mi id, maximus accumsan mauris.", "1",
+
+		];
+		document.getElementById("comment").innerHTML =  "\"" + all_comments[0] +  "\"" ;  
+		var i = 0;                     
+		function myLoop () {           
+			setTimeout(function () {    
+				document.getElementById("comment").innerHTML = "\"" + all_comments[i] + "\""; 
+				i++;       
+				document.getElementById("comment").innerHTML = "\"" + all_comments[i] + "\"";              
+				if (i < all_comments.length) {            
+					myLoop();            
+				}                        
+			}, 5000)
+		}
+		myLoop();  
+		</script>
+	</body>
+	</html>
