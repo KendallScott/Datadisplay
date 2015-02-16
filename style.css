@@ -1,0 +1,53 @@
+<style>
+h1, h2, h3, h4, p, li, a{
+	font-family: Quicksand;
+}
+body {
+    width:70%;
+    margin:3% auto;
+    background-image:'cream_pixels.png';
+}
+#chart_wrap {
+    position: relative;
+    padding-bottom: 80%;
+    margin: -10%;
+}
+#chartcomments {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+}
+.glyphicon , .glyphicon-arrow-right{
+    font-size: 2em;
+    float:right;
+    left:5px;
+    top:-7px;
+    position: relative;
+} 
+.float_right{
+    float:right;
+}
+.bottom{
+    position: relative;
+    top: -27%;
+    left: 20%;
+}
+#comment {
+    position:relative;
+    width: 100%;
+    opacity: .9;
+    background-color: #DEF4EC;
+    color: black;
+    padding: 3%;
+    font-size: 1.3em;
+}
+p{
+    font-size: 1.2em;
+}
+img {
+    width:500px;
+    opacity: .7;
+}
+</style>
